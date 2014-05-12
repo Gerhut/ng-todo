@@ -92,7 +92,7 @@ createServer(function (request, response) {
     if (response.statusCode == 204)
       return
 
-    var location = 'http://' + request.headers['host'] + '/' + item.id
+    var location = 'http://' + request.headers['host'] + '/' + (item.id || '')
     var body = JSON.stringify(item)
     
     response.setHeader('Content-Type', 'application/json')
