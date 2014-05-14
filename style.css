@@ -1,0 +1,57 @@
+html, body, ul.list-group {
+  margin: 0;
+  height: 100%;
+}
+
+li.list-group-item {
+  padding: 0;
+
+  color: #31708f;
+  background-color: #d9edf7;
+}
+
+li.list-group-item.finish {
+  color: #3c763d;
+  background-color: #dff0d8;
+}
+
+li.list-group-item div.text {
+  padding: 10px 15px;
+}
+
+li.list-group-item div.input-group {
+  padding: 3px 2px;
+}
+
+/* ngAnimate */
+
+body {
+  overflow-x: hidden;
+}
+
+li.list-group-item {
+  -webkit-transition: all ease 200ms;
+  transition: all ease 200ms;
+}
+
+li.list-group-item.ng-enter,
+li.list-group-item.ng-leave-active {
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+li.list-group-item.finish-add-active,
+li.list-group-item.finish-remove-active {
+  -webkit-transform: translateX(-10%);
+  transform: translateX(-10%);
+}
+
+li.list-group-item div {
+  -webkit-transition: opacity ease 200ms;
+  transition: opacity ease 200ms;
+}
+
+li.list-group-item div.ng-hide-remove,
+li.list-group-item div.ng-hide-add-active {
+  opacity: 0;
+}

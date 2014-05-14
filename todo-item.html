@@ -1,0 +1,19 @@
+<li data-ng-class="{finish: item.finish}">
+  <div class="text"
+       data-ng-bind="item.text"
+       data-ng-show="!editable"
+       data-ng-click="edit()"
+       data-ng-swipe-left="toggleFinish(); $event.stopPropagation()"
+       data-ng-swipe-right="remove()"></div>
+  <div class="input-group"
+       data-ng-show="editable">
+    <input type="text" class="form-control"
+           data-ng-model="item.text">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button"
+              data-ng-click="save()">
+        <span class="glyphicon glyphicon-ok"></span>
+      </button>
+    </span>
+  </div>
+</li>
