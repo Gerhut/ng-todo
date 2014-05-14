@@ -57,7 +57,7 @@ index.html文件没什么可说的，都是基本的HTML概念，只有一个地
 
 下面说明`ng-app`指令的用途，`ng-app`指令在一个HTML文档中只能有一个，它的用途是标明AngularJS的有效区域，在这个区域外的HTML在AngularJS中是不可见的，你不能通过AngularJS来获取和操作它们。
 
-比如说，如果我把`ng-app`标到`<body>`标签上，那么在`<head>`标签中的`<title>`标签就不能受到AngularJS的控制，我们就不能用AngularJS控制网页的标题。我也不知道标题将来会不会有控制标题的功能，所以就先放到`<html>`上了。
+比如说，如果我把`ng-app`标到`<body>`标签上，那么在`<head>`标签中的`<title>`标签就不能受到AngularJS的控制，我们就不能用AngularJS控制网页的标题。我也不知道将来会不会有控制标题的功能，所以就先放到`<html>`上了。
 
 `ng-app`的值`todo.app`标明了主模块的名字，模块是AngularJS中代码组织的基本单位，主模块可以理解为C语言中的main函数，也可以理解为Java中的主类。当网页加载完成，AngularJS开始工作，他会将主模块加载到内存。
 
@@ -87,7 +87,9 @@ angular对象和jQuery中的$一样，就是AngularJS的核心对象，所有功
 
 刷新后发现控制台中显示了完整的URL。
 
-我们可以看到在run函数里多了一个参数叫`$location`，它就是这个函数依赖的服务。AngularJS在调用这个函数的时候，发现这个函数有个参数叫`$location`，就会把`$location`服务注入到函数中，我们就可以在函数中自由地使用这个服务。我们还可以再注入一个服务：将run函数改为如下内容：
+我们可以看到在run函数里多了一个参数叫`$location`，它就是这个函数依赖的服务。AngularJS在调用这个函数的时候，发现这个函数有个参数叫`$location`，就会把`$location`服务注入到函数中，我们就可以在函数中自由地使用这个服务。
+
+我们还可以再注入一个服务，将run函数改为如下内容：
 
 ```js
   .run(function ($location, $window) {
