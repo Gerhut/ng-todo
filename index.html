@@ -8,23 +8,29 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <ul class="list-group"
-      data-ng-controller="todoCtrl"
-      data-ng-swipe-left="add()"
-      data-ng-dblclick="add()">
-    <li class="list-group-item"
-        data-ng-repeat="item in items"
-        data-todo-item="item"
-        data-ng-swipe-left="$event.stopPropagation(); show($event)"
-        data-ng-dblclick="$event.stopPropagation()"></li>
-  </ul>
+  <section data-ng-view></section>
   <script src="http://cdn.bootcss.com/angular.js/1.2.15/angular.js"></script>
   <script src="http://cdn.bootcss.com/angular.js/1.2.15/angular-resource.js"></script>
   <script src="http://cdn.bootcss.com/angular.js/1.2.15/angular-touch.js"></script>
   <script src="http://cdn.bootcss.com/angular.js/1.2.15/angular-animate.js"></script>
+  <script src="http://cdn.bootcss.com/angular.js/1.2.15/angular-route.js"></script>
   <script src="todo-item.js"></script>
   <script src="app.js"></script>
   <script src="resource.js"></script>
   <script src="controller.js"></script>
+  <script src="route.js"></script>
+
+  <script type="text/ng-template" id="guide.html">
+    <div class="jumbotron">
+      <h1>待办事项</h1>
+      <ul>
+        <li>在空白处双击或左划可以添加项目。</li>
+        <li>在项目上点击可以修改项目文本。</li>
+        <li>在项目上左划可以切换完成/未完成。</li>
+        <li>在项目上右划可以删除项目。</li>
+      </ul>
+      <p><a class="btn btn-primary btn-lg" href="#/app">进入</a></p>
+    </div>
+  </script>
 </body>
 </html>

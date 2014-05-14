@@ -1,2 +1,2 @@
 angular
-  .module('todo.app', ['ngResource', 'todo.item'])
+  .module('todo.app', ['ngResource', 'ngRoute', 'todo.item'])
