@@ -4,10 +4,6 @@ angular
     function($scope, todoResource) {
       $scope.items = todoResource.query()
 
-      $scope.show = function (o) {
-        console.log(o)
-      }
-
       $scope.add = function () {
         $scope.items.push({
           'text': '',
