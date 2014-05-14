@@ -10,6 +10,10 @@ li.list-group-item {
   background-color: #d9edf7;
 }
 
+li.list-group-item button.btn-danger {
+  float: right;
+}
+
 li.list-group-item.finish {
   color: #3c763d;
   background-color: #dff0d8;
@@ -54,4 +58,9 @@ li.list-group-item div {
 li.list-group-item div.ng-hide-remove,
 li.list-group-item div.ng-hide-add-active {
   opacity: 0;
+}
+
+li.list-group-item button {
+  -webkit-transition: all ease 200ms;
+  transition: all ease 200ms;
 }

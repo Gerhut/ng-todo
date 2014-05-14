@@ -1,10 +1,20 @@
 <li data-ng-class="{finish: item.finish}">
   <div class="text"
-       data-ng-bind="item.text"
        data-ng-show="!editable"
        data-ng-click="edit()"
-       data-ng-swipe-left="toggleFinish(); $event.stopPropagation()"
-       data-ng-swipe-right="remove()"></div>
+       data-ng-swipe-left="toggleFinish()"
+       data-ng-swipe-right="remove()">
+    <button class="btn btn-xs"
+            data-ng-class="item.finish ? 'btn-primary' : 'btn-success'"
+            data-ng-click="toggleFinish(); $event.stopPropagation()">
+      <span class="glyphicon glyphicon-ok"></span>
+    </button>
+    <span data-ng-bind="item.text"></span>
+    <button class="btn btn-danger btn-xs"
+            data-ng-click="remove(); $event.stopPropagation()">
+      <span class="glyphicon glyphicon-remove"></span>
+    </button>
+  </div>
   <div class="input-group"
        data-ng-show="editable">
     <input type="text" class="form-control"

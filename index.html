@@ -10,10 +10,13 @@
 <body>
   <ul class="list-group"
       data-ng-controller="todoCtrl"
-      data-ng-swipe-left="add()">
+      data-ng-swipe-left="add()"
+      data-ng-dblclick="add()">
     <li class="list-group-item"
         data-ng-repeat="item in items"
-        data-todo-item="item"></li>
+        data-todo-item="item"
+        data-ng-swipe-left="$event.stopPropagation(); show($event)"
+        data-ng-dblclick="$event.stopPropagation()"></li>
   </ul>
   <script src="http://cdn.bootcss.com/angular.js/1.2.15/angular.js"></script>
   <script src="http://cdn.bootcss.com/angular.js/1.2.15/angular-resource.js"></script>
