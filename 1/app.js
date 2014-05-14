@@ -1,5 +1,9 @@
 angular
   .module('todo.app', [])
-  .run(['$location', '$window', function (a, b) {
-    console.log(a.absUrl(), b.document.title)
-  }])
+  .run([
+    '$location', // [0]
+    '$window',   // [1]
+    function (a, b) {
+      console.log(a.absUrl(), b.document.title)
+    }            // [2]
+  ])

@@ -113,22 +113,30 @@ angular对象和jQuery中的$一样，就是AngularJS的核心对象，所有功
 
 刷新后出错。
 
-为了避免这个问题，在AngularJS中，编写**由AngularJS调用**的函数在书写时，可以使用**完整的数组形式**编写。此时不会出现参数名缩短导致AngularJS找不到要注入的服务的问题。下面我们采用**完整的数组形式**改写run函数：
+为了避免这个问题，在AngularJS中，编写**由AngularJS调用**的函数时，可以使用**完整的数组形式**编写。此时不会出现参数名缩短导致AngularJS找不到要注入的服务的问题。下面我们采用**完整的数组形式**改写run函数：
 
 ```js
-  .run(['$location', '$window', function ($location, $window) {
-    console.log($location.absUrl(), $window.document.title)
-  }])
+  .run([
+    '$location', // [0]
+    '$window',   // [1]
+    function ($location, $window) {
+      console.log($location.absUrl(), $window.document.title)
+    }            // [2]
+  ])
 ```
 
 刷新页面运行正常。
 
-此时我们（JavaScript压缩工具）可以随意的压缩参数名：
+当使用完整的数组形式编写AngularJS函数时，我们将拥有n个注入参数的函数体放到数组的最后一个（第[n]个）位置。在之前的n个（第[0]个到第[n-1]个）位置中，我们依次放入用字符串的形式表示的服务名。因为字符串不会被Javascript压缩工具压缩，所以此时我们（JavaScript压缩工具）可以随意的压缩参数名：
 
 ```js
-  .run(['$location', '$window', function (a, b) {
-    console.log(a.absUrl(), b.document.title)
-  }])
+  .run([
+    '$location', // [0]
+    '$window',   // [1]
+    function (a, b) {
+      console.log(a.absUrl(), b.document.title)
+    }            // [2]
+  ])
 ```
 
 刷新页面依然运行正常。
