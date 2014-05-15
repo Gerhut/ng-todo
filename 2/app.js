@@ -1,5 +1,7 @@
 angular
   .module('todo.app', [])
-  .run(['$location', '$window', function (a, b) {
-    console.log(a.absUrl(), b.document.title)
+  .value('myCalculator', 2)
+  //.constant('myCalculator', 1)
+  .run(['myCalculator', function (myCalculator) {
+    console.log(myCalculator)
   }])
