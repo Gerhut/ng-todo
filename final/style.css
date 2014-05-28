@@ -1,4 +1,4 @@
-html, body, ul.list-group {
+html, body, section, ul.list-group {
   margin: 0;
   height: 100%;
 }
