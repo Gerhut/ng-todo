@@ -1,7 +1,14 @@
 angular
   .module('todo.app', [])
-  .value('myCalculator', 2)
-  //.constant('myCalculator', 1)
+  .service('myCalculator', function () {
+    this.add = function (a, b) {
+      return a + b
+    }
+    this.minus = function (a, b) {
+      return a - b
+    }
+  })
   .run(['myCalculator', function (myCalculator) {
-    console.log(myCalculator)
+    console.log(myCalculator.add(123, 321))
+    console.log(myCalculator.minus(321, 123))
   }])
